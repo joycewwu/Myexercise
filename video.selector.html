@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            background-color: #7D8C85;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .video {
+            font-family: calibri, arial, sans-serif;
+            font-size: 62.5%
+        }
+
+        /* everything above this can be deleted if you want to use the selector, it just tidies the pen up a bit */
+        .videoHolder,
+        .videoSelector .item {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            padding-top: 30px
+        }
+
+        .videoSelector .item img {
+            overflow: hidden;
+            opacity: .6;
+            transition: opacity .8s
+        }
+
+        .videoPlayer iframe,
+        .videoSelector img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 315px;
+        }
+
+        .videoContent {
+            position: absolute;
+            top: 100px;
+            background: #7D8C85;
+            line-height: 1.25em;
+            padding: .25em;
+            font-size: 20px;
+        }
+
+        .videoSelector .item {
+            width: 25%;
+            float: left;
+            margin: 0;
+            padding-bottom: 12.49465%
+        }
+
+        .videoSelector .item img .selected {
+            outline: 3px solid #00f;
+            opacity: 1
+        }
+
+        .videoSelectorWrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            position: relative
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="video">
+            <div class="videoPlayer">
+                <div class="videoHolder">
+                    <iframe src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="videoContent">
+                    <p>Choose a video from the list to see it playing above.</p>
+                </div>
+            </div>
+            <div class="videoSelectorWrapper">
+                <div class="videoSelector">
+                    <div class="item">
+                        <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+                        <a data-videosource="youtube" data-videocode="sTANio_2E0Q" data-videocontent="" href="#"
+                            class="videoLink">
+                            <button type="button" class="btn btn-primary">Primary</button>
+                            <!-- <img src="https://img.youtube.com/vi/Pq3KmaTGi3Q/0.jpg"> -->
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a data-videosource="youtube" data-videocode="sTANio_2E0Q" data-autoplay="yes"
+                            data-videocontent="" href="#" class="videoLink">
+                            <button type="button" class="btn btn-danger">Danger</button>
+
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a data-videosource="youtube" data-videocode="vyVbSm1Gyh4" data-videocontent="" href="#"
+                            class="videoLink"><button type="button" class="btn btn-danger">Danger</button>
+
+                    </div>
+                    <div class="item">
+                        <a data-videocode="https://www.youtube-nocookie.com/embed/94Yz4NrZZ08" data-autoplay="yes"
+                            data-videocontent="" href="#" class="videoLink">
+                            <button type="button" class="btn btn-danger">Danger</button>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $('.videoLink').on('click', function (event) {
+            event.preventDefault();
+            $('.selected').removeClass('selected');
+            $(this).find('button').addClass('selected');
+            $('.videoContent').empty();
+            var videoSource = $(this).data('videosource');
+            var videoSelected = $(this).data('videocode');
+            var content = $(this).data('videocontent');
+            var autoPlay = $(this).data('autoplay');
+            var video;
+            if (videoSource == 'youtube') {
+                if (autoPlay == 'yes') {
+                    video = 'https://www.youtube.com/embed/' + videoSelected + '?feature=player&autohide=1&autoplay=1&rel=0';
+                }
+                else {
+                    video = 'https://www.youtube.com/embed/' + videoSelected + '?feature=player&autohide=1&rel=0';
+                }
+            }
+
+            else {
+                video = videoSelected;
+            }
+            $('.videoHolder iframe').attr('src', video);
+            $('.videoContent').append('<p>' + content + '</p>');
+        });
+
+    </script>
+</body>
+
+</html>

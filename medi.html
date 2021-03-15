@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>medi</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        /*meditation*/
+
+        hr.rounded {
+            text-align: center;
+            border-top: 5px solid #D17448;
+            border-radius: 5px;
+        }
+
+        .font-orange {
+            text-align: center;
+            color: #D17448;
+            margin: 5px 0;
+        }
+
+        .orange-btn {
+            border-radius: 50px;
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px 25px;
+            color: #fff;
+            background-color: #D17448;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        .orange-btn:hover {
+            background-color: #fff;
+            border: 1px solid #D17448;
+            color: #D17448;
+        }
+
+        /* previous */
+
+
+        .medi-wrap .flex-container {
+            position: relative;
+            background-color: #F3D5BB;
+            display: flex;
+            flex-direction: row;
+            margin: 10px 0px 10px 0px;
+        }
+
+
+        .flex-item-left {
+            /* border: 1px solid red; */
+            flex: 70%;
+        }
+
+        .flex-item-right {
+            flex: 30%;
+            padding-top: 300px;
+            /* position: absolute; */
+            /* top: 20px; */
+            margin-bottom: 20px;
+        }
+
+
+
+        .videoHolder {
+            /* border: 1px solid green; */
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            padding-bottom: 40%;
+            padding-top: 20px;
+
+        }
+
+        .videoSelector {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        .videoSelector .item img {
+            overflow: hidden;
+            opacity: .6;
+            transition: opacity .8s;
+        }
+
+        .videoPlayer {
+            padding: 50px;
+        }
+
+        .videoPlayer iframe {
+            /* border: 1px solid blue; */
+            position: absolute;
+            top: 0;
+            left: 10%;
+            /* right: */
+            width: 80%;
+            /* width: 100%; */
+            height: 500px;
+        }
+
+
+        .videoSelector .item {
+            width: 20%;
+            /* float: left; */
+            /* margin: 0 0 0px 20px; */
+            /* padding-bottom: 10%; */
+        }
+
+        .videoSelectorWrapper {
+            /* border: 1px solid red; */
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-bottom: 50px;
+        }
+
+
+        .videoSelector .item {
+            /* border: 2px solid grey; */
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+
+        .item {
+            /* border: 1px solid red; */
+            margin-right: 5px;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            /* max-width: 100px; */
+            /* height: 50px; */
+            color: #F3D5BB;
+        }
+
+        .item a {
+            color: #F3D5BB;
+
+        }
+
+        /* 
+        .medi-icons {
+            max-width: 50px;
+            height: auto;
+            fill: #F3D5BB;
+
+        } */
+
+
+        .video-inner {
+            margin: 20px;
+        }
+
+        .card-inner {
+            color: #Fff;
+            border-radius: 10px;
+            background-color: #D17448;
+            border: 5px solid#D17448;
+            padding-top: 50px;
+            /* padding-left: 10px; */
+            /* padding-right: 10px; */
+            margin-right: 10px;
+            margin-left: 5px;
+        }
+
+        .ogc-font-40 {
+            font-size: 30px;
+            color: #383232;
+        }
+
+
+
+        @media screen and (max-height: 767px) {
+
+            .medi-wrap .flex-container {
+                flex-direction: column;
+
+            }
+
+            .videoPlayer iframe {
+                position: absolute;
+                top: 0;
+                left: 5%;
+                width: 90%;
+                height: 300px;
+            }
+
+            .video-inner {
+                padding: 50px 0;
+            }
+
+            .flex-item-left {
+                margin-right: 0;
+
+            }
+
+            .flex-item-right {
+                flex: 30%;
+                padding-top: 20px;
+            }
+
+        }
+
+
+        /* block-$ */
+        .block-effect {
+            font-size: calc(8px + 6vw);
+        }
+
+        .block-reveal {
+            --t: calc(var(--td) + var(--d));
+
+            color: transparent;
+            padding: 4px;
+
+            position: relative;
+            overflow: hidden;
+
+            animation: revealBlock 0s var(--t) forwards;
+        }
+
+        .block-reveal::after {
+            content: '';
+
+            width: 0%;
+            height: 100%;
+            padding-bottom: 4px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            background: var(--bc);
+            animation: revealingIn var(--td) var(--d) forwards, revealingOut var(--td) var(--t) forwards;
+        }
+
+
+        /* animations */
+        @keyframes revealBlock {
+            100% {
+                color: #0f0f0f;
+            }
+        }
+
+        @keyframes revealingIn {
+
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes revealingOut {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+
+        }
+
+        .abs-site-link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: hsla(0, 0%, 0%, .6);
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="Fade-In">
+        <div class="Circle Absolute-Center Gradient Gradient-Scroll"></div>
+    </div>
+
+    <h1 class="block-effect" style="--td: 1.2s">
+        <div class="block-reveal" style="--bc: #D17448; --d: .1s">yoga moi</div>
+        <div class="block-reveal" style="--bc: #45594E; --d: .5s">Hug Yoga, Hug Life.</div>
+    </h1>
+
+    </div>
+
+    <div class="medi-wrap">
+        <div class="flex-container">
+            <div class="flex-item-left">
+                <div class="left-inner">
+                    <h1 class="font-orange mt-5">Meditation</h1>
+                    <hr class="rounded">
+                    <!-- <iframe width="500" height="415" src="https://www.youtube.com/embed/94Yz4NrZZ08" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe> -->
+                    <div class="video-selctor">
+                        <div class="videoPlayer">
+                            <div class="videoHolder">
+                                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <!-- <div class="videoContent">
+                            </div> -->
+                        </div>
+                        <div class="videoSelectorWrapper">
+                            <div class="videoSelector">
+                                <div class="item">
+                                    <!-- https://youtu.be/ZC-n4HyeYRA -->
+                                    <a data-videosource="youtube" data-videocode="ZC-n4HyeYRA" data-videocontent=""
+                                        href="#" class="videoLink">
+                                        <button type="button" class="orange-btn">Morning
+                                        </button>
+
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <!-- https://youtu.be/Pyefn1PJLZQ -->
+                                    <a data-videosource="youtube" data-videocode="Pyefn1PJLZQ" data-autoplay="yes"
+                                        data-videocontent="" href="#" class="videoLink">
+                                        <button type="button" class="orange-btn">Sleep</button>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a data-videosource="youtube" data-videocode="vyVbSm1Gyh4" data-videocontent=""
+                                        href="#" class="videoLink">
+                                        <button type="button" class="orange-btn">Focus</button>
+
+                                </div>
+                                <div class="item">
+                                    <a data-videocode="https://www.youtube-nocookie.com/embed/94Yz4NrZZ08"
+                                        data-autoplay="yes" data-videocontent="" href="#" class="videoLink">
+                                        <button type="button" class="orange-btn">Calm</button>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item-right">
+                <div class="card-inner">
+                    <!-- <h3 style="font-size:24px">Choose From A Variety Of Online Yoga Classes</h3> -->
+                    <h4 style="font-size:16px">You can try medi for yourself and learn the essentials of meditation
+                        and mindfulness with our free Basics course. If you enjoy it, then it’s time to subscribe.
+                        Once you do, you’ll have bite-sized minis for when you’re short on time, exercises to add
+                        extra mindfulness to your day, and hundreds of meditations on everything from stress to
+                        sleep.</h4>
+                    <h4 style="font-size:16px">Yoga avec moi 是個十分完善的線上瑜伽教室，以難易度分段學習，各式瑜伽選擇，包括
+                        Hatha、Vinyasa、Yin、Kundalini 和 Ashtanga，學員可按照自己的喜好或需求，在上面找到適合的課程。</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $('.videoLink').on('click', function (event) {
+            event.preventDefault();
+            $('.selected').removeClass('selected');
+            $(this).find('button').addClass('selected');
+            $('.videoContent').empty();
+            var videoSource = $(this).data('videosource');
+            var videoSelected = $(this).data('videocode');
+            var content = $(this).data('videocontent');
+            var autoPlay = $(this).data('autoplay');
+            var video;
+            if (videoSource == 'youtube') {
+                if (autoPlay == 'yes') {
+                    video = 'https://www.youtube.com/embed/' + videoSelected + '?feature=player&autohide=1&autoplay=1&rel=0';
+                }
+                else {
+                    video = 'https://www.youtube.com/embed/' + videoSelected + '?feature=player&autohide=1&rel=0';
+                }
+            }
+
+            else {
+                video = videoSelected;
+            }
+            $('.videoHolder iframe').attr('src', video);
+            $('.videoContent').append('<p>' + content + '</p>');
+        });
+    </script>
+
+</body>
+
+</html>

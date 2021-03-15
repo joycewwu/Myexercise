@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .fontS {
+            font-size: 0.8rem;
+        }
+
+        .fontM {
+            font-size: 1rem;
+        }
+
+        .fontL {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-end">
+            <div class="btn-group">
+                <button class="btn btn-info btnS">S</button>
+                <button class="btn btn-info active btnM">M</button>
+                <button class="btn btn-info btnL">L</button>
+            </div>
+        </div>
+
+        <h2>jQuery</h2>
+        <article>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quas ab architecto ducimus aliquid dolorem
+                dignissimos inventore quae totam! Architecto, nam facere voluptates quia vero ipsam quaerat iste
+                voluptas iure?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quas ab architecto ducimus aliquid dolorem
+                dignissimos inventore quae totam! Architecto, nam facere voluptates quia vero ipsam quaerat iste
+                voluptas iure?</p>
+        </article>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $('.btn').click(function () {
+            console.log('this', $(this).is(":contains('S')"))
+
+            $('.btn').removeClass('active');
+            $(this).addClass('active');
+
+            if ($(this).is(":contains('S')")) {
+                $('article').removeClass();
+                $('article').addClass('fontS');
+            }
+            if ($(this).is(":contains('M')")) {
+                $('article').removeClass();
+                $('article').addClass('fontM');
+
+            }
+            if ($(this).is(":contains('L')")) {
+                $('article').removeClass();
+                $('article').addClass('fontL');
+
+            }
+        })
+    </script>
+</body>
+
+</html>

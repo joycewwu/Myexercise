@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        .shop-wrap {
+            /* background-color: #F3D5BB; */
+
+
+        }
+
+        .container {
+            /* border: 1px solid gainsboro; */
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .section {
+            border: 1px solid gainsboro;
+            /* background-color: #F3D5BB; */
+
+        }
+
+        #colored-box {
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: none;
+            }
+
+            .text-box {
+                padding-bottom: 10vh;
+            }
+
+            #grid-pic {
+                max-height: 500px;
+            }
+        }
+
+        .shop-titles {
+            margin-right: 15px;
+            padding: 20px;
+        }
+
+        #grid-pic {
+            height: 400px;
+            width: 100%;
+            transition: .3s ease;
+            object-fit: cover;
+        }
+
+        .text-box {
+            height: auto;
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 15-vh;
+        }
+
+        .shopnow-button {
+            padding: 8px 25px;
+            /* height: 70px; */
+            /* width: 270px; */
+            background-color: #D17448;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            margin: 0 auto;
+            position: relative;
+            display: block;
+            transition: all .3s ease;
+        }
+
+        .shopnow-button:hover {
+            background-color: #e69976;
+            cursor: pointer;
+        }
+
+        #colored-box {
+            /* background-color: #F3D5BB; */
+
+        }
+
+        .wrapper {
+            padding: 5px;
+            max-width: 960px;
+            width: 95%;
+            margin: 20px auto;
+        }
+
+        header {
+            padding: 0 15px;
+        }
+
+        .wrapper-text-box {
+            width: 90%;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .column {
+            /* float: left; */
+            display: inline;
+            width: 20%;
+            /* height: x; */
+            margin: 33px;
+            justify-content: center;
+            text-align: center;
+            text-align: left;
+            font-size: 0.8em;
+            background-color: #FAFAFA;
+        }
+
+        .margin-right-1 {
+            margin-left: 2px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .column {
+                width: 45%;
+                height: 330px;
+                margin-bottom: 5px;
+                margin-left: 15px;
+                margin-right: 0;
+            }
+        }
+
+        #row-pic {
+            height: 80%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shop-wrap">
+        <h1 class="shop-titles">yoga moi EXCLUSIVES | 獨家精選</h1>
+        <div class="container">
+            <div class="section">
+                <img src="./image/products/towel/gift-3.jpg" id="grid-pic">
+            </div>
+            <div class="section" id="margin-right-1"><img src="./image/products/towel/gift-2.jpg" id="grid-pic"></div>
+            <div id="colored-box" class="section">
+                <div id="green-box" class="text-box">
+                    <h1 style="margin-left:10%; font-size: 40px;">Better Grip Means Deeper Connection</h1>
+                    <p style="margin-left:10%; margin-bottom: 30%;">Our original gift set is back!</p>
+                    <div class="sale-box">
+                        50%dff
+                    </div>
+                    <button class="shopnow-button">Shop Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <header>
+                <div class="wrapper-text-box">
+                    <h style="font-size:1.3em;">Beauty inspired by real life</h>
+                    <p>Glossier is a new approach to beauty. It’s about fun and freedom and being OK with yourself
+                        today. We
+                        make intuitive, uncomplicated products designed to live with you. </p>
+                </div>
+            </header>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a href="">
+                    <div class="card">
+                        <img onmouseover="hi()" id="change-p1" src="./image/products/block/block-01.jpg" alt="">
+                        <!-- <p1>Lash Slick</p1>
+                    <p>film from mascara</p> -->
+                    </div>
+                </a>
+                <p1>Yoga moi</p1>
+                <p>Classic mocha yoga block</p>
+                <p>$75</p>
+            </div>
+            <div class="column">
+                <a href="">
+                    <div class="card">
+                        <img id="change-p2" src="./image/products/yoga-bag/bag-01.jpg" alt="">
+                    </div>
+                </a>
+                <p1>agoy</p1>
+                <p> yam yoga bagk</p>
+                <p>$55</p>
+            </div>
+
+            <div class="column">
+                <a href="">
+                    <div class="card">
+                        <img id="change-p3" src="./image/products/block/block-01.jpg" alt="">
+                        <!-- <p1>Lash Slick</p1>
+                    <p>film from mascara</p> -->
+                    </div>
+                </a>
+                <p1>agoy</p1>
+                <p> yam yoga bagk</p>
+                <p>$55</p>
+            </div>
+            <div class="column">
+                <a href="">
+                    <div class="card">
+                        <img id="change-p4" src="./image/products/block/block-01.jpg" alt="">
+                        <!-- <p1>Lash Slick</p1>
+                        <p>film from mascara</p> -->
+                    </div>
+                </a>
+                <p1>agoy</p1>
+                <p> yam yoga bagk</p>
+                <p>$55</p>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.js"
+                integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+            <script>
+
+                function hi() {
+                    console.log('hi')
+                }
+                $('#change-p1')
+                    .mouseenter(function () { $('#change-p1').attr('src', '/image/products/block/block-01.jpg'); })
+                    .mouseleave(function () { $('#change-p1').attr('src', '/image/products/block/block-02.jpg'); });
+                $('#change-p2')
+                    .mouseenter(function () { $('#change-p2').attr('src', '/image/products/yoga-bag/bag-01.jpg'); })
+                    .mouseleave(function () { $('#change-p2').attr('src', '/image/products/yoga-bag/bag-02.jpg'); });
+                $('#change-p3')
+                    .mouseenter(function () { $('#change-p3').attr('src', '/image/products/yoga-bag/bag-01.jpg'); })
+                    .mouseleave(function () { $('#change-p3').attr('src', '/image/products/yoga-bag/bag-02.jpg'); });
+                $('#change-p4')
+                    .mouseenter(function () { $('#change-p4').attr('src', '/image/products/yoga-bag/bag-01.jpg'); })
+                    .mouseleave(function () { $('#change-p4').attr('src', '/image/products/yoga-bag/bag-02.jpg'); });
+            </script>
+
+</body>
+
+</html>

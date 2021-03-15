@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sunset</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Sunflower:300');
+
+        body,
+        body * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .space {
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            background-color: #F8FFE5;
+            font-family: 'Sunflower', sans-serif;
+        }
+
+        .sunset {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 800px;
+            height: 500px;
+            transform: translateX(-50%) translateY(-50%);
+            text-align: center;
+        }
+
+        .icon {
+            position: absolute;
+            width: 50%;
+            height: 0%;
+            padding-top: 50%;
+            overflow: hidden;
+            left: 50%;
+            top: 40%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .sun {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 40%;
+            height: 40%;
+            background-color: #FFC43D;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 50%;
+        }
+
+        .sun div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160%;
+            height: 2%;
+            transform: translateX(-50%) translateY(-50%) rotateZ(30deg);
+        }
+
+        .sun div:nth-child(2) {
+            transform: translateX(-50%) translateY(-50%) rotateZ(60deg);
+            width: 180%;
+        }
+
+        .sun div:nth-child(3) {
+            transform: translateX(-50%) translateY(-50%) rotateZ(90deg);
+        }
+
+        .sun div:nth-child(4) {
+            transform: translateX(-50%) translateY(-50%) rotateZ(120deg);
+            width: 180%;
+        }
+
+        .sun div:nth-child(5) {
+            transform: translateX(-50%) translateY(-50%) rotateZ(150deg);
+        }
+
+        .sun div:nth-child(6) {
+            transform: translateX(-50%) translateY(-50%) rotateZ(180deg);
+            width: 180%;
+        }
+
+        .sun div:before,
+        .sun div:after {
+            content: "";
+            position: absolute;
+            width: 15%;
+            height: 100%;
+            left: 0%;
+            top;
+            0%;
+            background-color: #FFC43D;
+        }
+
+        .sun div:after {
+            left: auto;
+            right: 0%;
+        }
+
+        .text {
+            position: absolute;
+            bottom: 10%;
+            display: table;
+            color: #000000;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="space">
+        <div class="sunset">
+            <div class="icon">
+                <div class="sun">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        var animation = function () {
+            var space = document.querySelector(".space");
+            var sunset = space.querySelector(".sunset");
+            var sun = sunset.querySelector(".sun");
+            var text = sunset.querySelector(".text");
+            var timeline = new TimelineMax({ repeat: 9999 });
+            timeline
+                .to(sun, 5, { rotationZ: 60, top: "150%", opacity: 0, ease: Linear.easeNone }, 0)
+                .to(space, 5, { backgroundColor: "#000000", ease: Linear.easeNone }, 0)
+                .to(text, 5, { color: "#ffffff" }, 0)
+                .to({}, 3, {}, 5)
+        };
+        animation();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        h1 {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            margin: 0 0 5% 0;
+            padding: 0.5em;
+            margin: 0 0 5% 0;
+        }
+
+        .cardboxes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+        }
+
+        .cardBox {
+            display: flex;
+            flex-direction: column;
+            /* float: left; */
+            font-size: 1.2em;
+            margin: 1% 0 1% 0;
+            margin: 0 auto;
+            perspective: 800px;
+            transition: all 0.3s ease 0s;
+            width: 20%;
+        }
+
+        .cardBox:hover .card01 .back,
+        .cardBox:hover .card02 .back,
+        .cardBox:hover .card03 .back,
+        .cardBox:hover .card04 .back
+        {
+
+            transform: rotateY(180deg);
+        }
+
+        .card01,
+        .card02,
+        .card03,
+        .card04 {
+            border-radius: 50%;
+            /* background: #222; */
+            cursor: default;
+            min-height: 300px;
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease 0s;
+            width: 300px;
+            -webkit-animation: giro 1s 1;
+            animation: giro 1s 1;
+        }
+
+        .card01 p {
+            margin-bottom: 1.8em;
+        }
+
+        .card01 .front,
+        .card01 .back,
+        .card02 .front,
+        .card02 .back,
+        .card03 .front,
+        .card03 .back,
+        .card04 .front,
+        .card04 .back {
+            border-radius: 50%;
+            backface-visibility: hidden;
+            box-sizing: border-box;
+            color: white;
+            display: block;
+            font-size: 1.2em;
+            height: 100%;
+            padding: 0.8em;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+
+
+        .card01 .back {
+            background-size: cover;
+            background-image: url(./image/class-01.jpg);
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+            background-position: 25% 75%;
+        }
+
+        .card02 .back {
+            background-size: cover;
+            background-image: url(./image/class-02.jpg);
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+            background-position: 25% 75%;
+        }
+
+        .card03 .back {
+            background-size: cover;
+            background-image: url(./image/class-03.jpg);
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+            background-position: 85% 15%;
+        }
+
+        .card04 .back {
+            background-size: cover;
+            background-image: url(./image/class-04.jpg);
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+            background-position: 35% 75%;
+        }
+
+
+
+
+        .card01 .front strong,
+        .card02 .front strong,
+        .card03 .front strong,
+        .card04 .front strong {
+            background: #fff;
+            border-radius: 100%;
+            color: #222;
+            font-size: 1.5em;
+            line-height: 30px;
+            padding: 0 7px 4px 6px;
+        }
+
+        .card01 .back a,
+        .card02 .back a,
+        .card03 .back a,
+        .card04 .back a {
+            padding: 0.3em 0.5em;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 1px;
+            font-size: 0.9em;
+            transition: all 0.2s ease 0s;
+        }
+
+        .card01 .back a:hover,
+        .card02 .back a:hover,
+        .card03 .back a:hover,
+        .card04 .back a:hover {
+            background:#fff;
+            color: #333;
+            text-shadow: 0 0 1px #333;
+        }
+
+        .cardBox:nth-child(1) .card01 .front{
+            background-color: #7D8C85;
+        }
+
+        .cardBox:nth-child(2) .card02 .front {
+            background: #D17448;
+        }
+
+        .cardBox:nth-child(3) .card03 .front{
+            background: #7D8C85;
+        }
+
+        .cardBox:nth-child(4) .card04 .front {
+            background: #D17448;
+        }
+
+        .cardBox:nth-child(1) .card01  {
+            -webkit-animation: giro 1.5s 1;
+            animation: giro 1.5s 1;
+        }
+
+        .cardBox:nth-child(2) .card02  {
+            -webkit-animation: giro 1.5s 1;
+            animation: giro 1.5s 1;
+        }
+
+        .cardBox:nth-child(3) .card03 {
+            -webkit-animation: giro 2s 1;
+            animation: giro 2s 1;
+        }
+
+        .cardBox:nth-child(4) .card04 {
+            -webkit-animation: giro 2.5s 1;
+            animation: giro 2.5s 1;
+        }
+
+        @-webkit-keyframes giro {
+            from {
+                transform: rotateY(180deg);
+            }
+
+            to {
+                transform: rotateY(0deg);
+            }
+        }
+
+        @keyframes giro {
+            from {
+                transform: rotateY(180deg);
+            }
+
+            to {
+                transform: rotateY(0deg);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .cardboxes {
+                flex-direction: column;
+            }
+
+
+            .cardBox {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3%;
+                width: 46%;
+            }
+
+            .card01,
+            .card02,
+            .card03,
+            .card04 {
+                width: 100%;
+                height: 285px;
+            }
+
+            .cardBox:last-child {
+                margin-bottom: 3%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+    <div class="cardboxes">
+
+        <div class="cardBox">
+            <div class="card01">
+                <div class="front">
+                    <h3>Back Side One</h3>
+                    <p>Content in card one</p>
+                    <a href="#">Button 1</a>
+                </div>
+                <div class="back">
+                    <h3>Hatha yoga</h3>
+                    <p>哈達瑜珈</p>
+                
+                </div>
+            </div>
+        </div>
+        <div class="cardBox">
+            <div class="card02">
+                <div class="front">
+                    <h3>Back Side One</h3>
+                    <p>Content in card one</p>
+                    <a href="#">Button 1</a>
+                </div>
+                <div class="back">
+                    <h3>Sculpt yoga</h3>
+                    <p>雕塑瑜珈</p>
+                 </div>
+            </div>
+        </div>
+
+
+        <div class="cardBox">
+            <div class="card03">
+                <div class="front">
+                    <h3>Back Side One</h3>
+                    <p>Content in card one</p>
+                    <a href="#">Button 1</a>
+                </div>
+                <div class="back">
+                    <h3>Barre</h3>
+                    <p>芭蕾提斯</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cardBox">
+            <div class="card04">
+                <div class="front">
+                    <h3>Back Side Four</h3>
+                    <p>Content in card four</p>
+                    <a href="#">Button 4</a>
+                </div>
+                <div class="back">
+                    <h3>Advanced</h3>
+                    <p>進階課程</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>
